@@ -1,8 +1,9 @@
-FROM ubuntu:20.04
+FROM ubuntu:latest
 
-RUN apt update
-RUN apt install -y curl
+ARG message_arg="Message Arg"
+ENV message_env="Message Env"
 
-COPY . /app/
+RUN echo $message_arg > arg.txt
+RUN echo $message_env > env.txt
 
-CMD ["ls", "-la"]
+CMD ["bash"]
