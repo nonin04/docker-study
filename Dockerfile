@@ -1,9 +1,13 @@
 FROM ubuntu:latest
 
-ARG message_arg="Message Arg"
-ENV message_env="Message Env"
+RUN touch 1.txt
 
-RUN echo $message_arg > arg.txt
-RUN echo $message_env > env.txt
+WORKDIR /app/my_dir
+
+RUN touch 2.txt
+
+WORKDIR ..
+
+RUN touch 3.txt
 
 CMD ["bash"]
